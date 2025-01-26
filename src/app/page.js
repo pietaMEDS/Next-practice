@@ -1,10 +1,19 @@
-import Image from "next/image";
+'use client'
+import { useState } from "react";
 
 export default function Home() {
+  const [count, SetCount] = useState(0)
   return (
-    <div className="container">
-      <span className="arrow">&gt;</span>
-      <span className="text">Hello World</span>
-    </div>
+    <main>
+      <div className="container">
+        <p>
+          Счётчик: 
+          <br />
+          <button className="btn" onClick={() => SetCount(count - 1)}>--</button>
+          <span id="count">{count}</span>
+          <button className="btn" onClick={() => SetCount(count + 1)}>++</button>
+        </p>
+      </div>
+    </main>
   );
 }

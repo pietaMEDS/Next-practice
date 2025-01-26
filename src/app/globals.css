@@ -47,3 +47,10 @@ body {
 .justify-around{
   justify-content: space-around;
 }
+
+.btn{
+  border: #ededed 1px solid;
+  border-radius: 15px;
+  width: 150px;
+  margin: 15px;
+}
