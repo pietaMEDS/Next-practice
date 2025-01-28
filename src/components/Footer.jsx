@@ -1,11 +1,14 @@
 import Link from "next/link";
 
-export default function Footer() {
+export default function Footer({ counter=0}) {
   return (
     <footer  className="bg-blue-500 font-medium">
       <div className="flex items-center justify-between p-2 lg:px-8 text-white w-full">
         <div>
           <span>&copy; 2025 New Rise. Все права защищены.</span>
+        </div>
+        <div>
+          <span>{counter}</span>
         </div>
         <div className="flex gap-2">
           <h5 className="items-center flex">Контакты</h5>

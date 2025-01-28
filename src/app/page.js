@@ -1,19 +1,18 @@
 'use client'
-import { useState } from "react";
+import { withCounter } from '@/hoc/counter'
 
-export default function Home() {
-  const [count, SetCount] = useState(0)
+function Home({ counter }) {
   return (
     <main>
       <div className="container">
         <p>
           Счётчик: 
           <br />
-          <button className="btn" onClick={() => SetCount(count - 1)}>--</button>
-          <span id="count">{count}</span>
-          <button className="btn" onClick={() => SetCount(count + 1)}>++</button>
+          <span id="count">{counter}</span>
         </p>
       </div>
     </main>
-  );
+  )
 }
+
+export default withCounter(Home)

@@ -22,6 +22,9 @@ export default function Header() {
           <div className="flex lg:flex-1">
             <span>Регистрация</span>
           </div>
+          <div className="flex lg:flex-1">
+            {/* <button className="btn" onClick={() => setCount(count + 1)}>++</button> */}
+          </div>
         </div>
       </nav>
     </header>
