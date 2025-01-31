@@ -2,31 +2,25 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="bg-blue-500 font-medium">
-      <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-8 text-white"
-        aria-label="Global"
-      >
-        <div className="flex lg:flex-1">
-          <img src="/logo.png" alt="New Rise icon" className="max-w-12" />
-          <span className="content-center font-bold">New Rise</span>
-        </div>
-
-        <div className="flex lg:flex-1">
-          <div className="flex lg:flex-1">
-            <span>Форум</span>
-          </div>
-          <div className="flex lg:flex-1">
-            <span>Контакты</span>
-          </div>
-          <div className="flex lg:flex-1">
-            <span>Регистрация</span>
-          </div>
-          <div className="flex lg:flex-1">
-            {/* <button className="btn" onClick={() => setCount(count + 1)}>++</button> */}
-          </div>
-        </div>
-      </nav>
+    <header>
+      <div className="header-main">
+        <Link href='/' className="header-back">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-arrow-left"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fillRule="evenodd"
+              d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
+            />
+          </svg>
+        </Link>
+        <h1 className="header-name">ФОТО ВЫСТАВКА</h1>
+      </div>
     </header>
   );
 }
