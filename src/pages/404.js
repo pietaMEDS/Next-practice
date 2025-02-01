@@ -11,7 +11,7 @@ function Custom404() {
         </div>
         <div className="text-err-404">
             <div className="text">
-
+``
             </div>
             <Link href='/'>
                 Вернуться на Главную
@@ -20,7 +20,7 @@ function Custom404() {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-arrow-right"
+                className="bi bi-arrow-right"
                 viewBox="0 0 16 16"
               >
                 <path
