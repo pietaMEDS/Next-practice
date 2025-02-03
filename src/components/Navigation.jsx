@@ -1,28 +1,58 @@
-'use client'
+"use client";
 
-export default function Navigation({counter=0, setCounter}) {
+import Link from "next/link";
+
+export default function Navigation({ setSearch, setSearchState }) {
   return (
-    <div>
-        <div className="flex items-center justify-between lg:px-8 text-white bg-blue-500 w-full p-2">
-            <div className="flex items-center">
-                <h5 className="items-center flex lg:flex-1">Поиск</h5>
-                <input type="text" className="flex lg:px-10 lg:flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full" />
-            </div>
-            <div className="flex">
-                <h5 className="items-center flex lg:flex-1">Управление счётчиком</h5>
-                <ul className="flex lg:flex-1 lg:px-8">
-                    <li>
-                        <button onClick={() => setCounter( counter + 1 )} className="flex lg:flex-1 lg:px-8">Увеличить</button>
-                    </li>
-                    <li>
-                        <button onClick={() => setCounter(0)} className="flex lg:flex-1 lg:px-8">Сбросить</button>
-                    </li>
-                    <li>
-                        <button onClick={() => setCounter( counter - 1 )} className="flex lg:flex-1 lg:px-8">Уменьшить</button>
-                    </li>
-                </ul>
-            </div>
+    <header>
+      <div className="navigation-main">
+        <div>
+          <Link href="/" className="header-back">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              className="bi bi-arrow-left"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fillRule="evenodd"
+                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
+              />
+            </svg>
+          </Link>
+          <h1 className="header-name">ФОТО ВЫСТАВКА</h1>
         </div>
-    </div>
+        <div>
+          <input
+            type="text"
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+          />
+          <button onClick={(e)=>setSearchState(true)}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              className="bi bi-search"
+              viewBox="0 0 16 16"
+            >
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+            </svg>
+          </button>
+        </div>
+        <div>
+          <Link href="/">Главная</Link>
+        </div>
+        <div>
+          <span>
+            {sessionStorage.getItem("auth") ? "Профиль" : <Link href={'auth/login'}>Авторизация</Link>}
+          </span>
+        </div>
+      </div>
+    </header>
   );
 }

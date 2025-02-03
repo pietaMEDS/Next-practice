@@ -1,9 +1,16 @@
 {
-    "users": [
-        {
-            "email":"123@gmail.com",
-            "password":"123123"
-        }
-    ]
-
+  "users": [
+    {
+      "id": 0,
+      "email": "123@gmail.com",
+      "password": "123123",
+      "SessionID": "GOJDp@&z7id"
+    },
+    {
+      "id": 1,
+      "email": "321@gmail.com",
+      "password": "123123",
+      "SessionID": "Cw!WSVVHTzQ"
+    }
+  ]
 }
