@@ -10,7 +10,7 @@ function Home() {
 
   async function login() {
     try {
-      let result = await fetch("http://localhost:3000/api/login", {
+      let result = await fetch("/api/login", {
         method: "POST",
         body: JSON.stringify({
           email: email,
@@ -19,9 +19,17 @@ function Home() {
       });
 
       let succesBody = await result.json();
-      sessionStorage.setItem("auth", true);
-      sessionStorage.setItem("Uniform_id", succesBody.Sessionid);
-      NavPush('/catalog')
+
+      if (result.status == 200) {
+        sessionStorage.setItem("auth", true);
+        sessionStorage.setItem("Uniform_id", succesBody.Sessionid);
+        NavPush('/catalog')
+      }
+      else{
+        console.log(succesBody.message);
+      }
+
+      
     } catch (err) {
       console.error("login error", err);
     }
