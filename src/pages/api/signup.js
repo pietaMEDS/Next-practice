@@ -7,6 +7,10 @@ export default async function handler(req, res) {
   }
   let { email, password } = JSON.parse(req.body);
 
+  if (!validateEmail(email) || !validatePassword(password)) {
+    return res.status(401).json({message: "Bad input"})
+  }
+
   async function signUp() {
     let sessionid = await generatorSessionId(11)
     InsertDB('users', ["email", "password", "sessionid"], [{type:"string", value:email}, {type:"string", value:password}, {type:"string", value:sessionid}])

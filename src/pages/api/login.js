@@ -1,5 +1,6 @@
 import { generatorSessionId } from "@/utility/generator";
 import { SelectDB, UpdateDB } from "@/utility/database";
+import { validateEmail, validatePassword } from "@/utility/validator";
 
 export default async function handler(req, res) {
 
