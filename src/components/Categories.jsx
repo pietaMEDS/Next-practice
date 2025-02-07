@@ -1,14 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { createApi } from "unsplash-js";
 
 export default function Categories( setSearch ) {
   const [pins, setPins] = useState([]);
-
-  const unsplash = createApi({
-    accessKey: "LAIM2RA2Z_GYPDX1JWkSRHe56h_FRmy5iVDqz6ajltk",
-  });
 
   async function goToCategory( name ) {
     setSearch(name)
@@ -16,11 +11,16 @@ export default function Categories( setSearch ) {
 
   async function GenerateCategories() {
     if (pins.length == 0) {
-      let result = await unsplash.photos.getRandom({
-        count: 4,
+      let result = await fetch("/api/photo/search", {
+        method: "POST",
+        cache: "force-cache",
+        body: JSON.stringify({
+          search: "",
+          sessionid: sessionStorage.getItem("Uniform_id"),
+        }),
       });
 
-      setPins(result.response);
+      setPins(result?.body?.data?.response ? result.body.data.response : [{topic_submissions:""}, {topic_submissions:""}, {topic_submissions:""}, {topic_submissions:""}]);
     }
   }
 

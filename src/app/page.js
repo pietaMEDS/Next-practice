@@ -3,8 +3,6 @@
 import AuthorizeLinks from "@/components/AuthorizeLinks";
 import CatalogLinks from "@/components/CatalogLinks";
 import Header from "@/components/Header";
-import { NavPush } from "@/utility/navigation";
-import Link from "next/link";
 
 function Home() {
   return (

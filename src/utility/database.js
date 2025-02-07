@@ -4,7 +4,7 @@ const db = new Database(
     "sqlitecloud://chjm0ykkhz.g4.sqlite.cloud:8860/next-pactice?apikey=h6kQFwvxHGlQDSxyBDwP1rMLlmdKyKW9H1CDyZbDFiU"
 );
 
-function conditionMaker(conditionParam) {
+function conditionMaker(conditionParam = []) {
     let paramContext = ""
     conditionParam.forEach((param) => {
         paramContext += `${param.row} ${param.comporator} ${param.valueType=="string" ? `'${param.value}'` : param.value} ${param.nextCondition ? param.nextCondition : ""} `
